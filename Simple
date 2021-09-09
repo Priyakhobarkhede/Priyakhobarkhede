@@ -1,0 +1,41 @@
+
+public class Simple {
+	
+Object o;
+
+Simple(Object obj)
+{
+	this.o=obj;
+}
+
+	
+public Object getO() {
+	return o;
+}
+
+
+
+	@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return "Today is:" +o;
+}
+
+
+	public static void main(String[] args) {
+		
+   Simple s=new Simple("Thuersday");
+   Simple s1=new Simple("something new");
+   Simple s3=new Simple(111);
+   Simple s4=new Simple(new Exception());
+   Simple s5=new Simple("something");
+   
+   System.out.println(s);
+   System.out.println(s1);
+   System.out.println(s3);
+   System.out.println(s4);
+   System.out.println(s5);
+   
+	}
+
+}
