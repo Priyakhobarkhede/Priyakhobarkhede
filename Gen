@@ -1,0 +1,91 @@
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Gen<K,V> {
+	private K key;
+	private V vlue;
+	
+
+	public Gen(K key, V vlue) {
+		super();
+		this.key = key;
+		this.vlue = vlue;
+	}
+
+
+	/**
+	 * @return the key
+	 */
+	public K getKey() {
+		return key;
+	}
+
+
+	/**
+	 * @return the vlue
+	 */
+	public V getVlue() {
+		return vlue;
+	}
+
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Gen [key=" + key +", value=" + vlue + "]";
+	}
+
+
+	public static void main(String[] args) {
+Comparator<Gen<Integer,String>>COMPARE_KEY=new  Comparator<Gen<Integer,String>>() {
+
+	@Override
+	public int compare(Gen<Integer, String> o1, Gen<Integer, String> o2) {
+		if(o1.getKey()<o2.getKey())
+		{
+			return -1;
+		}
+		else if(o1.getKey()>o2.getKey())
+				{
+		return 1;
+	}
+	else return 0;
+	}
+};
+
+	Comparator<Gen<Integer,String>>COMPARE_NAME_LENGTH=new Comparator<Gen<Integer,String>>() {
+
+		@Override
+		public int compare(Gen<Integer, String > o1, Gen<Integer, String > o2) {
+			if(o1.getVlue().length() < o2.getVlue().length())
+{
+	return -1;
+}
+else if(o1.getVlue().length() > o2.getVlue().length())
+{
+	return 1;
+}
+else return 0;
+		
+		
+	}
+	};
+
+	Set<Gen<Integer,String>>set=new TreeSet<>(COMPARE_KEY);
+
+	set.add(new Gen<Integer,String>(1,"pia"));
+	set.add(new Gen<Integer,String>(2,"kia"));
+	
+	set.add(new Gen<Integer,String>(5,"sia"));
+	
+	set.add(new Gen<Integer,String>(9,"mia"));
+	
+	set.add(new Gen<Integer,String>(5,"chand"));
+	for(Gen<Integer,String>element :set)
+	{
+		System.out.println(element);
+	}
+	
+	}
+}
