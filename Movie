@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+
+public class Movie implements Comparable<Movie>  {
+
+	String name;
+	int year;
+	double rate;
+	
+	public int compareTo(Movie m)
+	{
+		return this.year-m.year;
+	}
+	
+	public Movie(String n,int y,double r) {
+		super();
+		this.name=n;
+		this.year=y;
+		this.rate=r;
+		
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getName() {
+		return name;
+	}
+
+
+	public int getYear() {
+		return year;
+	}
+
+
+	public double getRate() {
+		return rate;
+	}
+
+	
+
+	public static void main(String[] args) {
+		ArrayList<Movie> al=new ArrayList<Movie>();
+		al.add(new Movie("war",2015,4.5));
+		al.add(new Movie("raj",2018,5.0));
+		al.add(new Movie("devil",2014,4.1));
+		
+		
+		Collections.sort(al);
+		System.out.println("after sorting");
+		for(Movie m:al)
+		{
+			System.out.println(m.getName() + " "  + m.getYear() + " " + m.getRate());
+		}
+
+	}
+}
