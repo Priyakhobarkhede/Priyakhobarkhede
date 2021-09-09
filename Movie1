@@ -1,0 +1,63 @@
+package com.profound;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+
+public class Movie1 implements Comparable<Movie1>  {
+
+	String name;
+	int year;
+	double rate;
+	
+	public int compareTo(Movie1 m)
+	{
+	if(this.year>m.year)
+		return 1;
+	else if(this.year<m.year)
+		return -1;
+	else return 0;
+	}
+	
+	public Movie1(String n,int y,double r) {
+		super();
+		this.name=n;
+		this.year=y;
+		this.rate=r;
+		
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getName() {
+		return name;
+	}
+
+
+	public int getYear() {
+		return year;
+	}
+
+
+	public double getRate() {
+		return rate;
+	}
+
+	
+
+	public static void main(String[] args) {
+		ArrayList<Movie1> al=new ArrayList<Movie1>();
+		al.add(new Movie1("war",2015,4.5));
+		al.add(new Movie1("raj",2018,5.0));
+		al.add(new Movie1("devil",2014,4.1));
+		
+		
+		Collections.sort(al);
+		System.out.println("after sorting");
+		for(Movie1 m:al)
+		{
+			System.out.println(m.getName() + " "  + m.getYear() + " " + m.getRate());
+		}
+
+	}
+}
