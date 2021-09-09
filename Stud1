@@ -1,0 +1,77 @@
+import java.util.ArrayList;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.io.*;
+
+public class Stud1 implements Comparable<Stud1>{
+	
+	String name,address;
+    int rlno;
+	
+
+	public Stud1( String name, String address, int rlno) {
+		super();
+		this.name = name;
+		this.address= address;
+		this.rlno=rlno;
+	}
+	
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.rlno+ " " +this.name + " " +this.address;
+	}
+@Override
+	public int compareTo(Stud1 o) {
+		System.out.println("hello");
+		return 0;
+	}
+
+}
+
+
+
+class Sortbyrollno implements Comparator<Stud1>
+{
+	public int compare(Stud1 a,Stud1 b)
+	{
+		return a.rlno-b.rlno;
+	}
+}
+class Sortbyname implements Comparator<Stud1>
+{
+	public int compare(Stud1 a,Stud1 b)
+	{
+		return a.name.compareTo(b.name);
+	}
+}
+class Main{
+	public static void main(String[] args) 
+	{
+	ArrayList<Stud1>li=new ArrayList<Stud1>();
+	li.add(new Stud1("pia","london",11));
+	li.add(new Stud1("meea","us",15));
+	li.add(new Stud1("sana","uk",16));
+	
+	System.out.println("unsorted");
+	for(int i=0;i<li.size();i++)
+		System.out.println(li.get(i));
+	Collections.sort(li,new Sortbyrollno());
+	Collections.sort(li);
+	System.out.println("\n sorted by roll no");
+	for(int i=0;i<li.size();i++)
+		System.out.println(li.get(i));
+	Collections.sort(li,new Sortbyname());
+	System.out.println("sorted by name");
+	for(int i=0;i<li.size();i++)
+		System.out.println(li.get(i));
+		
+	}
+
+	}
+
+
+
