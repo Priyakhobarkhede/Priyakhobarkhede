@@ -1,0 +1,68 @@
+
+package com.profound;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+public class Student implements Comparable<Student>{
+	double fees;
+	String name;
+	double per;
+	int year;
+	
+
+	public Student(double fees, String name, double per, int year) {
+		super();
+		this.fees = fees;
+		this.name = name;
+		this.per = per;
+		this.year = year;
+	}
+	@Override
+	public int compareTo(Student o) {
+		// TODO Auto-generated method stub
+		if(this.year>o.year)
+			return 1;
+		else if(this.year<o.year)
+			return -1;
+		else return 0;
+	}
+
+	public double getFees() {
+		return fees;
+	}
+
+	public String getName() {
+		return name;
+	}
+	public double getPer() {
+		return per;
+	}
+	public int getYear() {
+		return year;
+	}
+
+
+	public static void main(String[] args) 
+	{
+	ArrayList<Student>li=new ArrayList<Student>();
+	li.add(new Student(15000,"pia",75.6,2011));
+	li.add(new Student(20000,"meea",98.3,2015));
+	li.add(new Student(80000,"sana",58.6,2016));
+	li.add(new Student(40000,"mena",78,2020));
+	
+	//Collections.sort(li);
+	System.out.println("after sorting");
+	for(Student s:li)
+		{
+		System.out.println(s.getName() + " " +s.getFees() + " " +s.getYear() + " " +s.getPer());
+		}
+	
+
+	}
+
+
+	
+
+}
